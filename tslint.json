@@ -1,9 +1,23 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
     ],
-    "jsRules": {},
-    "rules": {},
-    "rulesDirectory": []
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "interface-name": [
+      true,
+     "never-prefix"
+    ]
+  },
+  "rulesDirectory": []
 }
