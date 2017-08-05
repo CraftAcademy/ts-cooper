@@ -1,0 +1,38 @@
+{
+  "name": "ts-cooper",
+  "version": "1.0.0",
+  "description": "Cooper challenge week 7 - Typescript Implementation",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ]
+  },
+  "keywords": [
+    "typescript",
+    "cooper-challenge",
+    "craftacademy"
+  ],
+  "author": "Raoul DIFFOUO",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "ts-jest": "^20.0.9",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {}
+}
