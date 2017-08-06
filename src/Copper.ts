@@ -53,32 +53,34 @@ class Cooper {
     }
   }
 
-  private getRatingIndex(person, distance) {
+  private getRatingIndex(person, distance): number {
     const ageRange = this.ageRange(person.age);
     const distanceRanges = this.cooperTable[
       person.gender.toLowerCase()
     ][ageRange];
 
-    for (let index = 0; index < distanceRanges.length; index++) {
-      const dRange = distanceRanges[index];
+    let ratingIndex: number;
 
+    distanceRanges.forEach((dRange, index) => {
       if (
         (dRange.match(/>\d*/) &&
         (distance >= parseInt(dRange.slice(1), 10))) ||
         (dRange.match(/<\d*/) &&
         (distance < parseInt(dRange.slice(1), 10)))
       ) {
-        return index;
+        ratingIndex = index;
       } else {
         const minMax = dRange.split('-');
         const min = parseInt(minMax[0], 10);
         const max = parseInt(minMax[1], 10);
 
         if (distance >= min && distance <= max) {
-          return index;
+          ratingIndex = index;
         }
       }
-    }
+    });
+
+    return ratingIndex;
   }
 }
 
