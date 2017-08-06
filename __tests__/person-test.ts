@@ -1,4 +1,4 @@
-import { Person } from '../src/person';
+import { Person } from '../src/Person';
 
 describe('Person', () => {
   test('should have a gender', () => {
