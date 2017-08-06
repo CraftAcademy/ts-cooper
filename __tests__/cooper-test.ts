@@ -144,5 +144,37 @@ describe('Cooper Assessment', () => {
         expect(person.assessmentMessage).toBe('Excellent');
       });
     });
+
+    describe('Male,', () => {
+      test('2800 m, with age between 13 and 14 should equal "Poor"', () => {
+        person = new Person('Male', 13);
+        person.doAssessment(2800);
+        expect(person.assessmentMessage).toBe('Excellent');
+      });
+
+      test('1290 m, with age between 15 and 16 should equal "Poor"', () => {
+        person = new Person('Male', 16);
+        person.doAssessment(1290);
+        expect(person.assessmentMessage).toBe('Poor');
+      });
+
+      test('2310 m, with age between 17 and 19 should equal "Poor"', () => {
+        person = new Person('Male', 18);
+        person.doAssessment(2310);
+        expect(person.assessmentMessage).toBe('Below average');
+      });
+
+      test('2200 m, with age between 30 and 39 should equal "Poor"', () => {
+        person = new Person('Male', 35);
+        person.doAssessment(2200);
+        expect(person.assessmentMessage).toBe('Average');
+      });
+
+      test('2200 m, with age between 40 and 49 should equal "Poor"', () => {
+        person = new Person('Male', 45);
+        person.doAssessment(2200);
+        expect(person.assessmentMessage).toBe('Above average');
+      });
+    });
   });
 });
