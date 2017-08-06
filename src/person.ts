@@ -11,7 +11,6 @@ class Person {
   }
 
   public doAssessment(distance: number): void {
-    // this.assessmentMessage = 'Above average';
     const cooper = new Cooper();
     this.assessmentMessage = cooper.assess(this, distance);
   }
