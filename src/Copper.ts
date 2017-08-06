@@ -29,7 +29,7 @@ class Cooper {
   };
 
   public assess(person, distance: number): string {
-    return this.ratings[this.getRatingIndex(person, distance)];
+    return this.getRating(person, distance);
   }
 
   private ageRange(age: number): string {
@@ -49,12 +49,17 @@ class Cooper {
       case (age >= 50):
         return '50+';
       default:
-        return 'invalid_range';
+        return 'invalid range';
     }
   }
 
-  private getRatingIndex(person, distance): number {
+  private getRating(person, distance): string {
     const ageRange = this.ageRange(person.age);
+
+    if (ageRange === 'invalid range') {
+      return 'Invalid age range';
+    }
+
     const distanceRanges = this.cooperTable[
       person.gender.toLowerCase()
     ][ageRange];
@@ -63,10 +68,8 @@ class Cooper {
 
     distanceRanges.forEach((dRange, index) => {
       if (
-        (dRange.match(/>\d*/) &&
-        (distance >= parseInt(dRange.slice(1), 10))) ||
-        (dRange.match(/<\d*/) &&
-        (distance < parseInt(dRange.slice(1), 10)))
+        (dRange.match(/>\d*/) && (distance >= parseInt(dRange.slice(1), 10))) ||
+        (dRange.match(/<\d*/) && (distance < parseInt(dRange.slice(1), 10)))
       ) {
         ratingIndex = index;
       } else {
@@ -80,7 +83,7 @@ class Cooper {
       }
     });
 
-    return ratingIndex;
+    return this.ratings[ratingIndex];
   }
 }
 

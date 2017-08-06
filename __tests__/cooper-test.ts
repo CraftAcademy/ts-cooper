@@ -12,6 +12,14 @@ describe('Cooper Assessment', () => {
       expect(person.assessmentMessage).toBe('Below average');
     });
 
+    describe('Male, below 13', () => {
+      test('is an invalid age range', () => {
+        person = new Person('Male', 10);
+        person.doAssessment(1400);
+        expect(person.assessmentMessage).toBe('Invalid age range');
+      });
+    });
+
     describe('Male, 20', () => {
 
       beforeEach(() => {
