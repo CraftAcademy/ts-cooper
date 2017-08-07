@@ -24,8 +24,10 @@ john.assessmentMessage);
 
 ### Testing
 
-Tests are written using [jest](https://facebook.github.io/jest/) and are in [__tests__](./__tests__) directory. To execute them, run the following command from your terminal
+Tests are written using [jest](https://facebook.github.io/jest/) and are in [\_\_tests\_\_](./__tests__) directory. To execute them, run the following command from your terminal
 
 ```shell
 $ npm test
 ```
+
+Before you run the above command make sure you run `npm install` to install all the project's dependencies.
