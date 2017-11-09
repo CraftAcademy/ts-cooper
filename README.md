@@ -10,15 +10,15 @@ import { Person } from '../src/Person'
 john = new Person('Male', 20)
 
 john.doAssessment(1400);
-john.assessmentMessage);
+john.assessmentMessage;
 // > Poor
 
 john.doAssessment(1800);
-john.assessmentMessage);
+john.assessmentMessage;
 // > Below average
 
 john.doAssessment(2300);
-john.assessmentMessage);
+john.assessmentMessage;
 // > Average
 ```
 
